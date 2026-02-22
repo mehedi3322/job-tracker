@@ -67,37 +67,40 @@ noData.classList.add("hidden");
 }
 
 }
+
 // BUTTON EVENTS
-// document.addEventListener("click", function (e) {
+document.addEventListener("click", function (e) {
 
-// if (e.target.closest(".interview")) {
+if (e.target.closest(".interview")) {
 
-// var card = e.target.closest(".job-card");
+var card = e.target.closest(".job-card");
 
-// card.dataset.status = "interview";
+card.dataset.status = "interview";
 
-// updateCount();
-// }
+updateCount();
+}
 
-// if (e.target.closest(".rejected")) {
+if (e.target.closest(".rejected")) {
 
-// var card = e.target.closest(".job-card");
+var card = e.target.closest(".job-card");
 
-// card.dataset.status = "rejected";
+card.dataset.status = "rejected";
 
-// updateCount();
-// }
+updateCount();
+}
 
-// if (e.target.closest(".delete")) {
+if (e.target.closest(".delete")) {
 
-// var card = e.target.closest(".job-card");
+var card = e.target.closest(".job-card");
 
-// card.remove();
+card.remove();
 
-// updateCount();
+updateCount();
 
-// filterJobs("all");
-// }
+filterJobs("all");
+}
+
+});
 
 // });
 // TAB EVENTS
