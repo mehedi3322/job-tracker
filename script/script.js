@@ -34,39 +34,39 @@ function updateCount() {
     totalCount.innerText = cards.length;
     sectionCount.innerText = cards.length + " Jobs";
 }
-// // FILTER JOBS
-// function filterJobs(type) {
+// FILTER JOBS
+function filterJobs(type) {
 
-// cards = document.getElementsByClassName("job-card");
+cards = document.getElementsByClassName("job-card");
 
-// var found = false;
+var found = false;
 
-// for (var i = 0; i < cards.length; i++) {
+for (var i = 0; i < cards.length; i++) {
 
-// if (type === "all") {
-// cards[i].style.display = "block";
-// found = true;
-// }
+if (type === "all") {
+cards[i].style.display = "block";
+found = true;
+}
 
-// else if (cards[i].dataset.status === type) {
-// cards[i].style.display = "block";
-// found = true;
-// }
+else if (cards[i].dataset.status === type) {
+cards[i].style.display = "block";
+found = true;
+}
 
-// else {
-// cards[i].style.display = "none";
-// }
+else {
+cards[i].style.display = "none";
+}
 
-// }
+}
 
-// if (!found) {
-// noData.classList.remove("hidden");
-// }
-// else {
-// noData.classList.add("hidden");
-// }
+if (!found) {
+noData.classList.remove("hidden");
+}
+else {
+noData.classList.add("hidden");
+}
 
-// }
+}
 // BUTTON EVENTS
 // document.addEventListener("click", function (e) {
 
