@@ -10,7 +10,7 @@
 
 <body class="bg-base-200 p-6">
     <h1 class="text-3xl font-bold mb-6 text-center">Job Application Tracker</h1>
-    <!-- ===== DASHBOARD ===== -->
+
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8 text-center">
         <div class="bg-yellow-50 p-4 rounded">
             <h2>Total Jobs</h2>
@@ -25,6 +25,25 @@
             <p id="rejectedCount" class="text-2xl font-bold">0</p>
         </div>
     </div>
+
+    <!-- ===== SECTION TITLE ===== -->
+    <div class="flex justify-between items-center mb-4">
+        <h2 class="text-xl font-bold">Available Jobs</h2>
+
+        <p id="sectionCount" class="font-semibold">8 Jobs</p>
+
+    </div>
+    <!-- ===== TABS ===== -->
+    <div class="flex gap-4 mb-6">
+        <button id="tabAll" class="bg-blue-500 text-white px-4 py-2 rounded">All</button>
+
+        <button id="tabInterview" class="bg-gray-300 px-4 py-2 rounded">Interview</button>
+
+        <button id="tabRejected" class="bg-gray-300 px-4 py-2 rounded">Rejected</button>
+
+    </div>
+
+
 
     <script src="script/script.js"></script>
 </body>
