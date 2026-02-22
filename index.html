@@ -1,256 +1,265 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Job Tracker</title>
+    <title>Job Application Tracker</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="bg-base-200 p-6">
-    <h1 class="text-3xl font-bold mb-6 text-center">Job Application Tracker</h1>
+<body class="bg-gray-100 p-6">
 
+    <!-- HEADER -->
+    <h1 class="text-3xl font-bold mb-6 text-center">
+        Job Application Tracker
+    </h1>
+
+    <!-- DASHBOARD -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8 text-center">
-        <div class="bg-yellow-50 p-4 rounded">
+
+        <div class="bg-blue-200 p-4 rounded">
             <h2>Total Jobs</h2>
             <p id="totalCount" class="text-2xl font-bold">0</p>
         </div>
-        <div class="bg-yellow-50 p-4 rounded">
+
+        <div class="bg-green-200 p-4 rounded">
             <h2>Interview</h2>
             <p id="interviewCount" class="text-2xl font-bold">0</p>
         </div>
-        <div class="bg-yellow-50 p-4 rounded">
+
+        <div class="bg-red-200 p-4 rounded">
             <h2>Rejected</h2>
             <p id="rejectedCount" class="text-2xl font-bold">0</p>
         </div>
+
     </div>
 
-    <!-- ===== SECTION TITLE ===== -->
+    <!-- SECTION -->
     <div class="flex justify-between items-center mb-4">
         <h2 class="text-xl font-bold">Available Jobs</h2>
-
         <p id="sectionCount" class="font-semibold">8 Jobs</p>
-
     </div>
-    <!-- ===== TABS ===== -->
+
+    <!-- TABS -->
     <div class="flex gap-4 mb-6">
-        <button id="tabAll" class="bg-blue-500 text-white px-4 py-2 rounded">All</button>
 
-        <button id="tabInterview" class="bg-gray-300 px-4 py-2 rounded">Interview</button>
+        <button id="tabAll" class="bg-blue-500 text-white px-4 py-2 rounded">
+            All
+        </button>
 
-        <button id="tabRejected" class="bg-gray-300 px-4 py-2 rounded">Rejected</button>
+        <button id="tabInterview" class="bg-gray-300 px-4 py-2 rounded">
+            Interview
+        </button>
+
+        <button id="tabRejected" class="bg-gray-300 px-4 py-2 rounded">
+            Rejected
+        </button>
 
     </div>
-    <!-- ===== NO DATA MESSAGE ===== -->
+
+    <!-- NO DATA -->
     <div id="noData" class="hidden text-center py-10">
-        <img src="jobs.png" class="w-20 mx-auto mb-4">
+
+        <img src="https://cdn-icons-png.flaticon.com/512/4076/4076549.png" class="w-20 mx-auto mb-4">
 
         <h3 class="text-lg font-bold">No Jobs Available</h3>
 
-        <p class="text-gray-500">There are no jobs in this section</p>
-        <!-- NO DATA -->
-        <div id="noData" class="hidden text-center py-10">
+        <p class="text-gray-500">
+            There are no jobs in this section
+        </p>
 
-            <img src="https://cdn-icons-png.flaticon.com/512/4076/4076549.png" class="w-20 mx-auto mb-4">
+    </div>
 
-            <h3 class="text-lg font-bold">No Jobs Available</h3>
+    <!-- JOB CONTAINER -->
+    <div id="jobContainer" class="grid grid-cols-1 md:grid-cols-2 gap-4">
 
-            <p class="text-gray-500">
-                There are no jobs in this section
+        <!-- CARD 1 -->
+        <div class="job-card bg-white p-4 rounded shadow relative" data-status="all">
+
+            <button class="delete absolute top-2 right-2">
+                <img src="https://cdn-icons-png.flaticon.com/512/1214/1214428.png" class="w-5 h-5">
+            </button>
+
+            <h3 class="font-bold text-lg">Google</h3>
+            <p>Frontend Developer</p>
+            <p>USA | Remote</p>
+            <p>Full Time</p>
+            <p>$5000</p>
+
+            <p class="text-sm text-gray-500 mt-2">
+                Build modern web applications using React.
             </p>
 
-        </div>
+            <div class="flex gap-2 mt-3">
 
-        <!-- JOB CONTAINER -->
-        <div id="jobContainer" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-
-            <!-- CARD 1 -->
-            <div class="job-card bg-white p-4 rounded shadow relative" data-status="all">
-
-                <button class="delete absolute top-2 right-2">
-                    <img src="https://cdn-icons-png.flaticon.com/512/1214/1214428.png" class="w-5 h-5">
+                <button class="interview bg-green-500 text-white px-3 py-1 rounded">
+                    Interview
                 </button>
 
-                <h3 class="font-bold text-lg">Google</h3>
-                <p>Frontend Developer</p>
-                <p>USA | Remote</p>
-                <p>Full Time</p>
-                <p>$5000</p>
-
-                <p class="text-sm text-gray-500 mt-2">
-                    Build modern web applications using React.
-                </p>
-
-                <div class="flex gap-2 mt-3">
-
-                    <button class="interview bg-green-500 text-white px-3 py-1 rounded">
-                        Interview
-                    </button>
-
-                    <button class="rejected bg-red-500 text-white px-3 py-1 rounded">
-                        Rejected
-                    </button>
-
-                </div>
-            </div>
-
-            <!-- CARD 2 -->
-            <div class="job-card bg-white p-4 rounded shadow relative" data-status="all">
-                <button class="delete absolute top-2 right-2">
-                    <img src="https://cdn-icons-png.flaticon.com/512/1214/1214428.png" class="w-5 h-5">
+                <button class="rejected bg-red-500 text-white px-3 py-1 rounded">
+                    Rejected
                 </button>
 
-                <h3 class="font-bold text-lg">Microsoft</h3>
-                <p>Backend Developer</p>
-                <p>USA | Remote</p>
-                <p>Full Time</p>
-                <p>$5500</p>
-
-                <p class="text-sm text-gray-500 mt-2">
-                    Develop scalable backend services.
-                </p>
-
-                <div class="flex gap-2 mt-3">
-                    <button class="interview bg-green-500 text-white px-3 py-1 rounded">Interview</button>
-                    <button class="rejected bg-red-500 text-white px-3 py-1 rounded">Rejected</button>
-                </div>
-            </div>
-
-            <!-- CARD 3 -->
-            <div class="job-card bg-white p-4 rounded shadow relative" data-status="all">
-                <button class="delete absolute top-2 right-2">
-                    <img src="https://cdn-icons-png.flaticon.com/512/1214/1214428.png" class="w-5 h-5">
-                </button>
-
-                <h3 class="font-bold text-lg">Amazon</h3>
-                <p>Cloud Engineer</p>
-                <p>USA | Remote</p>
-                <p>Full Time</p>
-                <p>$6000</p>
-
-                <p class="text-sm text-gray-500 mt-2">
-                    Manage cloud infrastructure.
-                </p>
-
-                <div class="flex gap-2 mt-3">
-                    <button class="interview bg-green-500 text-white px-3 py-1 rounded">Interview</button>
-                    <button class="rejected bg-red-500 text-white px-3 py-1 rounded">Rejected</button>
-                </div>
-            </div>
-
-            <!-- CARD 4 -->
-            <div class="job-card bg-white p-4 rounded shadow relative" data-status="all">
-                <button class="delete absolute top-2 right-2">
-                    <img src="https://cdn-icons-png.flaticon.com/512/1214/1214428.png" class="w-5 h-5">
-                </button>
-
-                <h3 class="font-bold text-lg">Meta</h3>
-                <p>React Developer</p>
-                <p>USA | Remote</p>
-                <p>Full Time</p>
-                <p>$6500</p>
-
-                <p class="text-sm text-gray-500 mt-2">
-                    Build interactive UI applications.
-                </p>
-
-                <div class="flex gap-2 mt-3">
-                    <button class="interview bg-green-500 text-white px-3 py-1 rounded">Interview</button>
-                    <button class="rejected bg-red-500 text-white px-3 py-1 rounded">Rejected</button>
-                </div>
-            </div>
-
-            <!-- CARD 5 -->
-            <div class="job-card bg-white p-4 rounded shadow relative" data-status="all">
-                <button class="delete absolute top-2 right-2">
-                    <img src="https://cdn-icons-png.flaticon.com/512/1214/1214428.png" class="w-5 h-5">
-                </button>
-
-                <h3 class="font-bold text-lg">Netflix</h3>
-                <p>UI Engineer</p>
-                <p>USA | Remote</p>
-                <p>Full Time</p>
-                <p>$5200</p>
-
-                <p class="text-sm text-gray-500 mt-2">
-                    Improve streaming user interface.
-                </p>
-
-                <div class="flex gap-2 mt-3">
-                    <button class="interview bg-green-500 text-white px-3 py-1 rounded">Interview</button>
-                    <button class="rejected bg-red-500 text-white px-3 py-1 rounded">Rejected</button>
-                </div>
-            </div>
-
-            <!-- CARD 6 -->
-            <div class="job-card bg-white p-4 rounded shadow relative" data-status="all">
-                <button class="delete absolute top-2 right-2">
-                    <img src="https://cdn-icons-png.flaticon.com/512/1214/1214428.png" class="w-5 h-5">
-                </button>
-
-                <h3 class="font-bold text-lg">Apple</h3>
-                <p>iOS Developer</p>
-                <p>USA</p>
-                <p>Full Time</p>
-                <p>$7000</p>
-
-                <p class="text-sm text-gray-500 mt-2">
-                    Develop mobile applications.
-                </p>
-
-                <div class="flex gap-2 mt-3">
-                    <button class="interview bg-green-500 text-white px-3 py-1 rounded">Interview</button>
-                    <button class="rejected bg-red-500 text-white px-3 py-1 rounded">Rejected</button>
-                </div>
-            </div>
-
-            <!-- CARD 7 -->
-            <div class="job-card bg-white p-4 rounded shadow relative" data-status="all">
-                <button class="delete absolute top-2 right-2">
-                    <img src="https://cdn-icons-png.flaticon.com/512/1214/1214428.png" class="w-5 h-5">
-                </button>
-
-                <h3 class="font-bold text-lg">Tesla</h3>
-                <p>Software Engineer</p>
-                <p>USA</p>
-                <p>Full Time</p>
-                <p>$6500</p>
-
-                <p class="text-sm text-gray-500 mt-2">
-                    Work on autonomous systems.
-                </p>
-
-                <div class="flex gap-2 mt-3">
-                    <button class="interview bg-green-500 text-white px-3 py-1 rounded">Interview</button>
-                    <button class="rejected bg-red-500 text-white px-3 py-1 rounded">Rejected</button>
-                </div>
-            </div>
-
-            <!-- CARD 8 -->
-            <div class="job-card bg-white p-4 rounded shadow relative" data-status="all">
-                <button class="delete absolute top-2 right-2">
-                    <img src="https://cdn-icons-png.flaticon.com/512/1214/1214428.png" class="w-5 h-5">
-                </button>
-
-                <h3 class="font-bold text-lg">Spotify</h3>
-                <p>Frontend Engineer</p>
-                <p>Remote</p>
-                <p>Full Time</p>
-                <p>$5000</p>
-
-                <p class="text-sm text-gray-500 mt-2">
-                    Create music streaming interface.
-                </p>
-
-                <div class="flex gap-2 mt-3">
-                    <button class="interview bg-green-500 text-white px-3 py-1 rounded">Interview</button>
-                    <button class="rejected bg-red-500 text-white px-3 py-1 rounded">Rejected</button>
-                </div>
             </div>
         </div>
+
+        <!-- CARD 2 -->
+        <div class="job-card bg-white p-4 rounded shadow relative" data-status="all">
+            <button class="delete absolute top-2 right-2">
+                <img src="https://cdn-icons-png.flaticon.com/512/1214/1214428.png" class="w-5 h-5">
+            </button>
+
+            <h3 class="font-bold text-lg">Microsoft</h3>
+            <p>Backend Developer</p>
+            <p>USA | Remote</p>
+            <p>Full Time</p>
+            <p>$5500</p>
+
+            <p class="text-sm text-gray-500 mt-2">
+                Develop scalable backend services.
+            </p>
+
+            <div class="flex gap-2 mt-3">
+                <button class="interview bg-green-500 text-white px-3 py-1 rounded">Interview</button>
+                <button class="rejected bg-red-500 text-white px-3 py-1 rounded">Rejected</button>
+            </div>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="job-card bg-white p-4 rounded shadow relative" data-status="all">
+            <button class="delete absolute top-2 right-2">
+                <img src="https://cdn-icons-png.flaticon.com/512/1214/1214428.png" class="w-5 h-5">
+            </button>
+
+            <h3 class="font-bold text-lg">Amazon</h3>
+            <p>Cloud Engineer</p>
+            <p>USA | Remote</p>
+            <p>Full Time</p>
+            <p>$6000</p>
+
+            <p class="text-sm text-gray-500 mt-2">
+                Manage cloud infrastructure.
+            </p>
+
+            <div class="flex gap-2 mt-3">
+                <button class="interview bg-green-500 text-white px-3 py-1 rounded">Interview</button>
+                <button class="rejected bg-red-500 text-white px-3 py-1 rounded">Rejected</button>
+            </div>
+        </div>
+
+        <!-- CARD 4 -->
+        <div class="job-card bg-white p-4 rounded shadow relative" data-status="all">
+            <button class="delete absolute top-2 right-2">
+                <img src="https://cdn-icons-png.flaticon.com/512/1214/1214428.png" class="w-5 h-5">
+            </button>
+
+            <h3 class="font-bold text-lg">Meta</h3>
+            <p>React Developer</p>
+            <p>USA | Remote</p>
+            <p>Full Time</p>
+            <p>$6500</p>
+
+            <p class="text-sm text-gray-500 mt-2">
+                Build interactive UI applications.
+            </p>
+
+            <div class="flex gap-2 mt-3">
+                <button class="interview bg-green-500 text-white px-3 py-1 rounded">Interview</button>
+                <button class="rejected bg-red-500 text-white px-3 py-1 rounded">Rejected</button>
+            </div>
+        </div>
+
+        <!-- CARD 5 -->
+        <div class="job-card bg-white p-4 rounded shadow relative" data-status="all">
+            <button class="delete absolute top-2 right-2">
+                <img src="https://cdn-icons-png.flaticon.com/512/1214/1214428.png" class="w-5 h-5">
+            </button>
+
+            <h3 class="font-bold text-lg">Netflix</h3>
+            <p>UI Engineer</p>
+            <p>USA | Remote</p>
+            <p>Full Time</p>
+            <p>$5200</p>
+
+            <p class="text-sm text-gray-500 mt-2">
+                Improve streaming user interface.
+            </p>
+
+            <div class="flex gap-2 mt-3">
+                <button class="interview bg-green-500 text-white px-3 py-1 rounded">Interview</button>
+                <button class="rejected bg-red-500 text-white px-3 py-1 rounded">Rejected</button>
+            </div>
+        </div>
+
+        <!-- CARD 6 -->
+        <div class="job-card bg-white p-4 rounded shadow relative" data-status="all">
+            <button class="delete absolute top-2 right-2">
+                <img src="https://cdn-icons-png.flaticon.com/512/1214/1214428.png" class="w-5 h-5">
+            </button>
+
+            <h3 class="font-bold text-lg">Apple</h3>
+            <p>iOS Developer</p>
+            <p>USA</p>
+            <p>Full Time</p>
+            <p>$7000</p>
+
+            <p class="text-sm text-gray-500 mt-2">
+                Develop mobile applications.
+            </p>
+
+            <div class="flex gap-2 mt-3">
+                <button class="interview bg-green-500 text-white px-3 py-1 rounded">Interview</button>
+                <button class="rejected bg-red-500 text-white px-3 py-1 rounded">Rejected</button>
+            </div>
+        </div>
+
+        <!-- CARD 7 -->
+        <div class="job-card bg-white p-4 rounded shadow relative" data-status="all">
+            <button class="delete absolute top-2 right-2">
+                <img src="https://cdn-icons-png.flaticon.com/512/1214/1214428.png" class="w-5 h-5">
+            </button>
+
+            <h3 class="font-bold text-lg">Tesla</h3>
+            <p>Software Engineer</p>
+            <p>USA</p>
+            <p>Full Time</p>
+            <p>$6500</p>
+
+            <p class="text-sm text-gray-500 mt-2">
+                Work on autonomous systems.
+            </p>
+
+            <div class="flex gap-2 mt-3">
+                <button class="interview bg-green-500 text-white px-3 py-1 rounded">Interview</button>
+                <button class="rejected bg-red-500 text-white px-3 py-1 rounded">Rejected</button>
+            </div>
+        </div>
+
+        <!-- CARD 8 -->
+        <div class="job-card bg-white p-4 rounded shadow relative" data-status="all">
+            <button class="delete absolute top-2 right-2">
+                <img src="https://cdn-icons-png.flaticon.com/512/1214/1214428.png" class="w-5 h-5">
+            </button>
+
+            <h3 class="font-bold text-lg">Spotify</h3>
+            <p>Frontend Engineer</p>
+            <p>Remote</p>
+            <p>Full Time</p>
+            <p>$5000</p>
+
+            <p class="text-sm text-gray-500 mt-2">
+                Create music streaming interface.
+            </p>
+
+            <div class="flex gap-2 mt-3">
+                <button class="interview bg-green-500 text-white px-3 py-1 rounded">Interview</button>
+                <button class="rejected bg-red-500 text-white px-3 py-1 rounded">Rejected</button>
+            </div>
+        </div>
+
     </div>
-    <script src="script/script.js"></script>
+
+    <script src="script.js"></script>
+
 </body>
 
 </html>
