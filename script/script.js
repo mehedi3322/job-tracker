@@ -101,19 +101,17 @@ filterJobs("all");
 }
 
 });
-
-// });
 // TAB EVENTS
-// tabAll.addEventListener("click", function () {
-// filterJobs("all");
-// });
+tabAll.addEventListener("click", function () {
+filterJobs("all");
+});
 
-// tabInterview.addEventListener("click", function () {
-// filterJobs("interview");
-// });
+tabInterview.addEventListener("click", function () {
+filterJobs("interview");
+});
 
-// tabRejected.addEventListener("click", function () {
-// filterJobs("rejected");
-// });
+tabRejected.addEventListener("click", function () {
+filterJobs("rejected");
+});
 
-// updateCount();
+updateCount();
