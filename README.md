@@ -2,4 +2,4 @@
 2. A new DOM element is created using document.createElement(), content or attributes are added, and then it is inserted using methods like appendChild() or append().
 3. Event Bubbling is when an event starts from the target element and propagates upward its parent elements. It continues until it reaches the document unless stopped.
 4. Event Delegation is attaching one event listener to a parent to handle events from its children using bubbling. It improves performance and works well for dynamically added elements.
-5.preventDefault() stops the browsers default action for an event, while stopPropagation() stops the event from moving up the DOM. They control different aspects of event handling.
+5. preventDefault() stops the browsers default action for an event, while stopPropagation() stops the event from moving up the DOM. They control different aspects of event handling.
